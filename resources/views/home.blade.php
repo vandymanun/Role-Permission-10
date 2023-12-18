@@ -36,8 +36,8 @@
             </div> --}}
 
             <div class="card-body" align="center">
-                <h1 style="color:#3e4095; font-family: Khmer OS Muol Light">សូមស្វាគមន៌មកកាន់ប្រព័ន្ធ</h1>
-                <h2 style="color:#3e4095; font-family: Bodoni MT Black">WELCOME TO SYSTEM</h2><br>
+                <h1 style="color:#3e4095; font-family: Khmer OS Muol Light">សូមស្វាគមន៌មកកាន់ប្រព័ន្ធគ្រប់គ្រង</h1>
+                <h2 style="color:#3e4095; font-family: Bodoni MT Black"><b>WELCOME TO SYSTEM</b></h2><br>
                 
                 <div class="image">
                     <img src="dist/img/Logo_with_name.png" width="50%" alt="User Image">

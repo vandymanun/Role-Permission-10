@@ -28,9 +28,8 @@ class PermissionController extends Controller
     public function index()
     
     {
-        $permission = DB::table("permissions")->paginate(10);
-        return view('permissions.index',compact('permission'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
+        $permission = DB::table("permissions")->get();
+        return view('permissions.index',compact('permission'));
 
         //     $permission = Permission::all()->paginate(5);
         // return view('permissions.index',compact('permissions'))

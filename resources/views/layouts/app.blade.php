@@ -6,10 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>AdminLTE 3 | Blank Page</title>
 
+
+
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
 
     <link rel="stylesheet" href="{{ asset('plugins/fontawesome-free/css/all.min.css') }}">
+
+    <link rel="stylesheet" href="{{ asset('plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('plugins/datatables-buttons/css/buttons.bootstrap4.min.css') }}">
 
     <link rel="stylesheet" href="{{ asset('dist/css/adminlte.min.css?v=3.2.0') }}">
     <script nonce="8fba54dd-815b-4350-9177-9f112da6d644">
@@ -77,6 +83,7 @@
             }(w, d, "zarazData", "script");
         })(window, document);
     </script>
+    
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -94,45 +101,12 @@
                     <a href="{{ route('home') }}" class="nav-link">
                         Home</a>
                 </li>
-                {{-- <li class="nav-item d-none d-sm-inline-block">
-                    <a href="#" class="nav-link">Contact</a>
-                </li> --}}
-
             </ul>
 
             <ul class="navbar-nav ml-auto">
-
-                <li class="nav-item">
-                    <a class="nav-link" data-widget="navbar-search" href="#" role="button">
-                        <i class="fas fa-search"></i>
-                    </a>
-                    <div class="navbar-search-block">
-                        <form class="form-inline">
-                            <div class="input-group input-group-sm">
-                                <input class="form-control form-control-navbar" type="search" placeholder="Search"
-                                    aria-label="Search">
-                                <div class="input-group-append">
-                                    <button class="btn btn-navbar" type="submit">
-                                        <i class="fas fa-search"></i>
-                                    </button>
-                                    <button class="btn btn-navbar" type="button" data-widget="navbar-search">
-                                        <i class="fas fa-times"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </li>
-
-
                 <li class="nav-item">
                     <a class="nav-link" data-widget="fullscreen" href="#" role="button">
                         <i class="fas fa-expand-arrows-alt"></i>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
-                        <i class="fas fa-th-large"></i>
                     </a>
                 </li>
                 <li class="nav-item dropdown">
@@ -231,7 +205,7 @@
                                 <a href="#" class="nav-link">
                                     <i class="nav-icon fas fa-edit"></i>
                                     <p>
-                                        Forms
+                                        Student
                                         <i class="fas fa-angle-left right"></i>
                                     </p>
                                 </a>
@@ -239,25 +213,93 @@
                                     <li class="nav-item">
                                         <a href="../forms/general.html" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
-                                            <p>General Elements</p>
+                                            <p>Registration</p>
                                         </a>
                                     </li>
                                     <li class="nav-item">
                                         <a href="../forms/advanced.html" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
-                                            <p>Advanced Elements</p>
+                                            <p>Student History</p>
                                         </a>
                                     </li>
                                     <li class="nav-item">
                                         <a href="../forms/editors.html" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
-                                            <p>Editors</p>
+                                            <p>Payment History</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        @endcan
+                        @can('form1-list')
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fas fa-edit"></i>
+                                    <p>
+                                        Controlling
+                                        <i class="fas fa-angle-left right"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="../forms/general.html" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Expire</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="../forms/advanced.html" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Drop Out</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="../forms/editors.html" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Score List</p>
                                         </a>
                                     </li>
                                     <li class="nav-item">
                                         <a href="../forms/validation.html" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
-                                            <p>Validation</p>
+                                            <p>Student List</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        @endcan
+                        @can('form2-list')
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fas fa-edit"></i>
+                                    <p>
+                                        Report
+                                        <i class="fas fa-angle-left right"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="../forms/general.html" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Attendant Result</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="../forms/advanced.html" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Academic Comfirmation</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="../forms/editors.html" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Final Result</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="../forms/validation.html" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Exam Name List</p>
                                         </a>
                                     </li>
                                 </ul>
@@ -340,6 +382,37 @@
     <script src="{{ asset('dist/js/adminlte.min.js?v=3.2.0') }}"></script>
 
     <script src="{{ asset('dist/js/demo.js') }}"></script>
+
+    <script src="{{ asset('plugins/datatables/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
+    <script src="{{ asset('plugins/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('plugins/datatables-buttons/js/dataTables.buttons.min.js') }}"></script>
+    <script src="{{ asset('plugins/datatables-buttons/js/buttons.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('plugins/jszip/jszip.min.js') }}"></script>
+    <script src="{{ asset('plugins/pdfmake/pdfmake.min.js') }}"></script>
+    <script src="{{ asset('plugins/pdfmake/vfs_fonts.js') }}"></script>
+    <script src="{{ asset('plugins/datatables-buttons/js/buttons.html5.min.js') }}"></script>
+    <script src="{{ asset('plugins/datatables-buttons/js/buttons.print.min.js') }}"></script>
+    <script src="{{ asset('plugins/datatables-buttons/js/buttons.colVis.min.js') }}"></script>
+    <!-- Page specific script -->
+    <script>
+        $(function () {
+        $("#example1").DataTable({
+            "responsive": true, "lengthChange": false, "autoWidth": false,
+            "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+        }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+        $('#example2').DataTable({
+            "paging": true,
+            "lengthChange": false,
+            "searching": false,
+            "ordering": true,
+            "info": true,
+            "autoWidth": false,
+            "responsive": true,
+        });
+        });
+    </script>
 </body>
 
 </html>

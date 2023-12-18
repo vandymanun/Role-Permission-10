@@ -32,30 +32,31 @@
                 <p>{{ $message }}</p>
             </div>
         @endif
+        
         <section class="content">
-
-            <div class="card">
-                <div class="card-header">
-                    <h3 class="card-title">Role Page</h3>
-                    <div class="card-tools">
-                        <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                            <i class="fas fa-minus"></i>
-                        </button>
-                        <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
-                            <i class="fas fa-times"></i>
-                        </button>
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-12">
+                  
+                  <div class="card">
+                    <div class="card-header">
+                      <h3 class="card-title">User Page</h3>
                     </div>
-                </div>
-                <div class="card-body">
-                    <table class="table table-bordered">
-                        <tr>
-                            <th>No</th>
-                            <th>Name</th>
-                            <th width="280px">Action</th>
-                        </tr>
-                        @foreach ($roles as $key => $role)
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                      <table id="example1" class="table table-bordered table-striped">
+                        <thead>
                             <tr>
-                                <td>{{ ++$i }}</td>
+                                <th>No</th>
+                                <th>Name</th>
+                                <th width="280px">Action</th>
+                               
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($roles as $key => $role)
+                            <tr>
+                                <td>{{ $loop->iteration }}</td>
                                 <td>{{ $role->name }}</td>
                                 <td>
                                     <a class="btn btn-info" href="{{ route('roles.show', $role->id) }}">Show</a>
@@ -70,19 +71,21 @@
                                 </td>
                             </tr>
                         @endforeach
-                    </table>
-
-
-                    {!! $roles->render() !!}
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>No</th>
+                                <th>Name</th>
+                                <th width="280px">Action</th>                                
+                            </tr>
+                        </tfoot>
+                      </table>
+                     
+                    </div>
+                  </div>
                 </div>
-
-                <div class="card-footer">
-                    Footer
-                </div>
-
+              </div>
             </div>
-
         </section>
-
     </div>
 @endsection

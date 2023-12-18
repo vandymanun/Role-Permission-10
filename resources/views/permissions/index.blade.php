@@ -32,56 +32,59 @@
                 <p>{{ $message }}</p>
             </div>
         @endif
+        
         <section class="content">
-
-            <div class="card">
-                <div class="card-header">
-                    <h3 class="card-title">Permissions Page</h3>
-                    <div class="card-tools">
-                        <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                            <i class="fas fa-minus"></i>
-                        </button>
-                        <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
-                            <i class="fas fa-times"></i>
-                        </button>
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-12">
+                  
+                  <div class="card">
+                    <div class="card-header">
+                      <h3 class="card-title">Product</h3>
                     </div>
-                </div>
-                <div class="card-body">
-                    <table class="table table-bordered">
-                        <tr>
-                            <th>No</th>
-                            <th>Name</th>
-                            {{-- <th>Details</th> --}}
-                            <th width="280px">Action</th>
-                        </tr>
-                        @foreach ($permission as $product)
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                      <table id="example1" class="table table-bordered table-striped">
+                        <thead>
                             <tr>
-                                <td>{{ ++$i }}</td>
-                                <td>{{ $product->name }}</td>
-                                {{-- <td>{{ $product->guard_name }}</td> --}}
-                                <td>
-                                    @can('permission-edit')
-                                    <a class="btn btn-primary" href="{{ route('permissions.edit', $product->id) }}">Edit</a>
-                                    @endcan
-                                    @can('permission-delete')
-                                        {!! Form::open(['method' => 'DELETE', 'route' => ['permissions.destroy', $product->id], 'style' => 'display:inline']) !!}
-                                        {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
-                                        {!! Form::close() !!}
-                                    @endcan
-                                </td>
+                                <th>No.</th>
+                                <th>Name</th>                                
+                                <th width="280px">Action</th>                               
                             </tr>
-                        @endforeach
-                    </table><br>
-
-                    {!! $permission->links('pagination::bootstrap-5') !!}
+                        </thead>
+                        <tbody>
+                            @foreach ($permission as $product)
+                                <tr>
+                                    <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $product->name }}</td>
+                                    {{-- <td>{{ $product->guard_name }}</td> --}}
+                                    <td>
+                                        @can('permission-edit')
+                                        <a class="btn btn-primary" href="{{ route('permissions.edit', $product->id) }}">Edit</a>
+                                        @endcan
+                                        @can('permission-delete')
+                                            {!! Form::open(['method' => 'DELETE', 'route' => ['permissions.destroy', $product->id], 'style' => 'display:inline']) !!}
+                                            {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
+                                            {!! Form::close() !!}
+                                        @endcan
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>No.</th>
+                                <th>Name</th>
+                                <th width="280px">Action</th>                               
+                            </tr>
+                        </tfoot>
+                      </table>
+                      {{-- {!! $permission->links('pagination::bootstrap-5') !!} --}}
+                    </div>
+                  </div>
                 </div>
-                <div class="card-footer">
-                    Footer
-                </div>
-
+              </div>
             </div>
-
         </section>
-
     </div>
 @endsection
