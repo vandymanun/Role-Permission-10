@@ -146,7 +146,7 @@
         </nav>
 
 
-        <aside class="main-sidebar sidebar-dark-primary elevation-4">
+        <aside class="main-sidebar sidebar-dark-primary elevation-4" >
 
 
             <div class="sidebar">
@@ -203,7 +203,7 @@
                         @can('form-list')
                             <li class="nav-item">
                                 <a href="#" class="nav-link">
-                                    <i class="nav-icon fas fa-edit"></i>
+                                    <i class="nav-icon fas fa-users"></i>
                                     <p>
                                         Student
                                         <i class="fas fa-angle-left right"></i>
@@ -234,7 +234,7 @@
                         @can('form1-list')
                             <li class="nav-item">
                                 <a href="#" class="nav-link">
-                                    <i class="nav-icon fas fa-edit"></i>
+                                    <i class="nav-icon fas fa-th-list"></i>
                                     <p>
                                         Controlling
                                         <i class="fas fa-angle-left right"></i>
@@ -271,7 +271,7 @@
                         @can('form2-list')
                             <li class="nav-item">
                                 <a href="#" class="nav-link">
-                                    <i class="nav-icon fas fa-edit"></i>
+                                    <i class="nav-icon fas fa-file-invoice"></i> 
                                     <p>
                                         Report
                                         <i class="fas fa-angle-left right"></i>
@@ -381,7 +381,7 @@
 
     <script src="{{ asset('dist/js/adminlte.min.js?v=3.2.0') }}"></script>
 
-    <script src="{{ asset('dist/js/demo.js') }}"></script>
+    {{-- <script src="{{ asset('dist/js/demo.js') }}"></script> --}}
 
     <script src="{{ asset('plugins/datatables/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
