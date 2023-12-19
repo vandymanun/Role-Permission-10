@@ -190,17 +190,17 @@
                                 </p>
                             </a>
                         </li>
-                        @can('product-list')
+                        @can('setting-list')
                             <li class="nav-item">
-                                <a href="{{ route('products.index') }}" class="nav-link">
-                                    <i class="nav-icon fas fa-table"></i>
+                                <a href="{{ route('settings.index') }}" class="nav-link">
+                                    <i class="nav-icon fas fa-cog"></i>
                                     <p>
-                                        Products
+                                        Setting
                                     </p>
                                 </a>
                             </li>
                         @endcan
-                        @can('form-list')
+                        {{-- @can('form-list')
                             <li class="nav-item">
                                 <a href="#" class="nav-link">
                                     <i class="nav-icon fas fa-users"></i>
@@ -304,7 +304,7 @@
                                     </li>
                                 </ul>
                             </li>
-                        @endcan
+                        @endcan --}}
                         @canany(['role-list', 'user-list', 'permission-list'])
                             <li class="nav-header">Administrator</li>
                         @endcanany
